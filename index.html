@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Para ti 🤍</title>
+
+  <!-- Fuente manuscrita -->
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background-color: #222129;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Brush Script MT", "Segoe Script", cursive;
+      color: #f5f5f5;
+    }
+
+    .card {
+      background-color: #2b2a33;
+      padding: 34px;
+      border-radius: 18px;
+      width: 370px;
+      text-align: center;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.45);
+    }
+
+    h2 {
+      font-weight: normal;
+      margin-bottom: 22px;
+      font-size: 26px;
+    }
+
+    p {
+      line-height: 1.7;
+      margin-bottom: 22px;
+      font-size: 18px;
+    }
+
+    .firma {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #e5b8c9;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 10px;
+      background-color: #e5b8c9;
+      color: #222129;
+      font-size: 16px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .secondary {
+      background-color: transparent;
+      color: #e5b8c9;
+      border: 1px solid #e5b8c9;
+    }
+
+    iframe {
+      border-radius: 12px;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="card" id="app"></div>
+
+<script>
+/* ---------- PANTALLA 1 ---------- */
+function portada() {
+  app.innerHTML = `
+    <h2>Para ti,<br>mi amado Humberto</h2>
+    <button onclick="carta()">Abrir carta</button>
+  `;
+}
+
+/* ---------- PANTALLA 2 ---------- */
+function carta() {
+  app.innerHTML = `
+    <p>
+      He estado trabajando en esto para ti,<br>
+      una forma más en la que quiero estar para ti,<br>
+      incluso si físicamente no puedo responderte<br>
+      o estar contigo.
+    </p>
+
+    <button onclick="inicio()">Abrir</button>
+    <button class="secondary" onclick="portada()">Volver</button>
+  `;
+}
+
+/* ---------- QUIZ ---------- */
+function inicio() {
+  app.innerHTML = `
+    <h2>¿Cómo estás?</h2>
+
+    <button onclick="respuesta('bien')">Bien</button>
+    <button onclick="respuesta('mal')">Mal</button>
+    <button onclick="respuesta('cansado')">Cansado</button>
+    <button onclick="respuesta('confundido')">Confundido</button>
+    <button onclick="respuesta('triste')">Triste</button>
+    <button onclick="respuesta('abrumado')">Abrumado</button>
+
+    <iframe width="100%" height="200"
+      src="https://www.youtube.com/embed/eFWUnHJWwCg"
+      title="Canción que te dedico por siempre"
+      frameborder="0"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  `;
+}
+
+function respuesta(opcion) {
+  if (opcion === "bien") {
+    mensajeFinal(
+      "Me alegra saber que estás bien. Vas muy bien y es hermoso que también lo reconozcas. Estoy orgullosa de ti."
+    );
+  }
+
+  if (opcion === "mal") {
+    app.innerHTML = `
+      <p>Lamento saber eso 🤍<br>
